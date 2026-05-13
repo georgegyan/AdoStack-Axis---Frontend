@@ -1,9 +1,16 @@
-const Service = () => {
+import Layout from "../components/layout/Layout"
+
+const Home = () => {
   return (
-    <div>
-      <h1>Service Page</h1>
-    </div>
+    <Layout>
+      <section className="py-32">
+        <h1 className="text-6xl font-bold text-center">
+          Building Modern
+          Digital Experiences
+        </h1>
+      </section>
+    </Layout>
   )
 }
 
-export default Service
+export default Home
