@@ -25,8 +25,7 @@ const Navbar = () => {
           </Link>
           {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-10">
-            {
-              navLinks.map((link) => (
+            { navLinks.map((link) => (
                 <NavLink key={link.name} to={link.path} className={({ isActive }) =>` text-sm font-medium transition hover:text-black
                     ${
                       isActive
@@ -51,86 +50,32 @@ const Navbar = () => {
         </nav>
       </Container>
       {/* MOBILE MENU */}
-      <div
-        className={`
-          fixed
-          top-0
-          right-0
-          h-screen
-          w-[80%]
-          max-w-sm
-          bg-white
-          shadow-2xl
-          z-50
-          p-8
-          transform
-          transition-transform
-          duration-300
-          ${
-            menuOpen
-              ? "translate-x-0"
-              : "translate-x-full"
-          }
-        `}
-      >
-
+      <div className={`fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-white shadow-2xl z-50 p-8 transform transition-transform duration-300 ${ menuOpen ? "translate-x-0" : "translate-x-full" } `}>
         <div className="flex items-center justify-between mb-12">
-
           <h2 className="text-2xl font-bold">
             Menu
           </h2>
-
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="text-3xl"
-          >
-
+          <button onClick={() => setMenuOpen(false)} className="text-3xl">
             <HiOutlineX />
-
           </button>
-
         </div>
-
         <div className="flex flex-col gap-8">
-
           {
             navLinks.map((link) => (
-
-              <NavLink
-                key={link.name}
-                to={link.path}
-                onClick={() => setMenuOpen(false)}
-                className="text-lg font-medium text-gray-700"
-              >
+              <NavLink key={link.name} to={link.path} onClick={() => setMenuOpen(false)} className="text-lg font-medium text-gray-700">
                 {link.name}
               </NavLink>
-
             ))
           }
-
         </div>
-
       </div>
-
       {/* OVERLAY */}
       {
         menuOpen && (
-
-          <div
-            onClick={() => setMenuOpen(false)}
-            className="
-              fixed
-              inset-0
-              bg-black/30
-              z-40
-            "
-          />
-
+          <div onClick={() => setMenuOpen(false)} className=" fixed inset-0 bg-black/30 z-40"/>
         )
       }
-
     </header>
-
   )
 }
 
